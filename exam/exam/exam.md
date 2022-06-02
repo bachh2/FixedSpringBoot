@@ -42,7 +42,7 @@ CrudRepository<T,ID>, PagingAndSortingRepository<T,ID>, QueryByExampleExecutor<T
 
 Trong Question9.java 
 
-10. Khi đã chọn một cột là Identity dùng @Id để đánh dấu, thì có cần phải dùng xác định unique dùng annotation @Column(unique=true) không?
+10. Khi đã chọn một cột là Identity dùng @Id để đánh dấu, thì có cần phải dùng xác định unique dùng annotation @Column (unique=true) không?
 Không, do @Id đã chỉ định khóa chính
 
 11. Khác biệt giữa @Id với @NaturalId là gì?
@@ -50,7 +50,7 @@ NaturalId nhận giá trị từ bên ngoài vẫn đảm bảo rằng chúng kh
 
 12. Có những cột không phải primary key (@Id) hay @NaturalId, dữ liệu có thể trùng lặp (unique không đảm bảo true), nhưng cần đánh chỉ mục (index) để tìm kiếm nhanh hơn vậy phải dùng annotation gì? Hãy viết 1 ví dụ sử dụng annotation đó với index cho 1 column và 1 ví dụ với index cho tổ hợp nhiều column. Tham khảo tại (https://www.baeldung.com/jpaindexes)
 @Index
-VD ở trong Index.java
+VD ở trong IndexExample
 
 13. Annotation @GeneratedValue dùng để chọn cách tự sinh unique id cho primary key phải là trường kiểu int hoặc long. Nếu trường primary key có kiểu là String, chúng ta không thể dùng @GeneratedValue vậy hãy thử liệt kê các cách đảm bảo sinh ra chuỗi có tính duy nhất?
 Sử dụng UUID
@@ -60,7 +60,7 @@ o Tìm tất cả các Employee theo emailAddress và lastName
 o Tìm tất cả các Employee khác nhau theo firstName hoặc lastName
 o Tìm tất cả các Employee theo lastName và sắp xếp thứ tự theo firstName tăng dần
 o Tìm tất cả các Employee theo fistName không phân biệt hoa thường
-Trong EmployeeRepository
+VD trong EmployeeRepository
 
 15. Hãy nêu cách sử dụng của @NamedQuery và @Query. Cho ví dụ
 @Query: tự định nghĩa các method sử dụng câu truy vấn JPQL (Hibernate) hoặc raw SQL.
@@ -77,7 +77,7 @@ Tạo 1 interface mới cho custom method, sau đó tạo 1 class implement inte
 VD: ở EmployeeRepositoryImpl và EmployeeRepositoryCustom
 
 17. Hãy nêu 1 ví dụ sử dụng sorting và paging khi query đối tượng Employee ở trên
-VD; Pageable sortedById = PageRequest.of(0, 5, Sort.by("id").ascending());
+VD: Pageable sortedById = PageRequest.of(0, 5, Sort.by("id").ascending());
 
 18. Có 3 Entity Product.java và Category.java và Tag.java
 • Hãy bổ sung định nghĩa quan hệ One to Many giữa bảng Category (One) -- Product (Many). Chú ý khi một Category xoá, thì không được phép xoá Product, mà chỉ set thuộc tính Category của Product là null.
