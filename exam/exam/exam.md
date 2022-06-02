@@ -82,3 +82,31 @@ VD: Pageable sortedById = PageRequest.of(0, 5, Sort.by("id").ascending());
 18. Có 3 Entity Product.java và Category.java và Tag.java
 • Hãy bổ sung định nghĩa quan hệ One to Many giữa bảng Category (One) -- Product (Many). Chú ý khi một Category xoá, thì không được phép xoá Product, mà chỉ set thuộc tính Category của Product là null.
 • Hãy bổ sung định nghĩa quan hệ Many to Many giữa bảng Tag(Many) -- Product(Many).
+
+19. Có 2 Entity Student.java và Course.java
+Hãy mô tả quan hệ Many to Many. Một Student có thể học nhiều Course. Một Course có
+nhiều Student tham gia. Bảng trung gian giữa Student và Course cần có một trường là điểm
+score kiểu int giá trị gán vào từ 0 đến 10. Cần validate ở phương thức setter
+Dữ liệu mẫu để kiểm thử:
+student.sql
+INSERT INTO student (id, name) VALUES (1, 'bob');
+INSERT INTO student (id, name) VALUES (2, 'alice');
+INSERT INTO student (id, name) VALUES (3, 'tom');
+INSERT INTO student (id, name) VALUES (4, 'jane');
+INSERT INTO student (id, name) VALUES (5, 'van');
+INSERT INTO student (id, name) VALUES (6, 'long');
+course.sql
+INSERT INTO course (id, name) VALUES (1, 'math');
+INSERT INTO course (id, name) VALUES (2, 'music');
+INSERT INTO course (id, name) VALUES (3, 'history');
+Nội dung môn học và điểm
+bob học {math: 7, music: 5, history: 8}
+alice học {math: 8, music: 2, history: 9}
+tom học {math: 4, history: 10}
+jane học {music: 9, history: 8}
+van học {math: 9, music: 7, history: 6}
+long học {math: 10, music: 3}
+20. Với kết quả của câu 19: Hãy lập trình JPARepository và viết JUnit5 để tính
+• Trả về liệt kê sinh viên tham gia từng môn học Map<String, List<Student>>: key là tên môn học, value là danh sách sinh viên đăng ký
+• Viết Native Query để tính điểm trung bình một môn bất kỳ
+• Liệt kê danh sách sinh viên học math nhưng không học music
